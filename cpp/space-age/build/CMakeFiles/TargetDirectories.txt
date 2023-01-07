@@ -1,0 +1,4 @@
+/Users/marc-antoinegiguere/dev/studies/exercism/cpp/space-age/build/CMakeFiles/space-age.dir
+/Users/marc-antoinegiguere/dev/studies/exercism/cpp/space-age/build/CMakeFiles/test_space-age.dir
+/Users/marc-antoinegiguere/dev/studies/exercism/cpp/space-age/build/CMakeFiles/edit_cache.dir
+/Users/marc-antoinegiguere/dev/studies/exercism/cpp/space-age/build/CMakeFiles/rebuild_cache.dir
