@@ -8,30 +8,35 @@ func FavoriteCards() []int {
 // GetItem retrieves an item from a slice at given position.
 // If the index is out of range, we want it to return -1.
 func GetItem(slice []int, index int) int {
-	if index >= len(slice) || index < 0 {
+	if isOutOfBound(slice, index) {
 		return -1
-	} else {
-		return slice[index]
 	}
+	return slice[index]
 }
 
 // SetItem writes an item to a slice at given position overwriting an existing value.
 // If the index is out of range the value needs to be appended.
 func SetItem(slice []int, index, value int) []int {
-	if GetItem(slice, index) == -1 {
-		slice = append(slice, value)
-	} else {
-		slice[index] = value
+	if isOutOfBound(slice, index) {
+		return append(slice, value)
 	}
+	slice[index] = value
 	return slice
 }
 
 // PrependItems adds an arbitrary number of values at the front of a slice.
-func PrependItems(slice []int, value ...int) []int {
-	return append(value, slice...)
+func PrependItems(slice []int, values ...int) []int {
+	return append(values, slice...)
 }
 
 // RemoveItem removes an item from a slice by modifying the existing slice.
 func RemoveItem(slice []int, index int) []int {
-	return slice
+	if isOutOfBound(slice, index) {
+		return slice
+	}
+	return append(slice[:index], slice[index+1:]...)
+}
+
+func isOutOfBound(slice []int, index int) bool {
+	return slice == nil || index < 0 || index >= len(slice)
 }
